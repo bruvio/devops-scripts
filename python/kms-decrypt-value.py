@@ -14,6 +14,6 @@ encrypted_value = sys.argv[3]
 # handler so that these are decrypted once per container
 try:
     DECRYPTED = boto3.client('kms').decrypt(CiphertextBlob=b64decode( encrypted_value ))['Plaintext'].decode('utf-8')
-    print ( "hola : " + DECRYPTED )
+    print(f"hola : {DECRYPTED}")
 except ClientError as e:
     logging.error(e)
